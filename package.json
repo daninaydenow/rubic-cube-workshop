@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/daninaydenow/rubic-cube-workshop/issues"
   },
-  "homepage": "https://github.com/daninaydenow/rubic-cube-workshop#readme"
+  "homepage": "https://github.com/daninaydenow/rubic-cube-workshop#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "nodemon": "^2.0.13"
+  }
 }
