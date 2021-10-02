@@ -7,6 +7,11 @@ const home = (req, res) => {
      res.render('index', {cubes});
 }
 
-router.get('/', home);
+const about = (req, res) => {
+     res.render('about');
 
+}
+
+router.get('/', home);
+router.get('/about', about);
 module.exports = router;
