@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const config = require('./config/config.json');
 const initHandlebars = require('./config/handlebars');
 const routes = require('./routes');
 

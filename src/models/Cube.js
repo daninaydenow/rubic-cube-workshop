@@ -14,6 +14,13 @@ class Cube {
             description: 'Best rapper ITW',
             imageUrl: 'https://api.time.com/wp-content/uploads/2015/08/ice-cube-straight-outta-compton1.jpg?quality=85&w=1024&h=512&crop=1',
             difficulty: '6'
+          },
+          {
+            id: 'axgku9uv5vb',
+            name: 'Cute Cube',
+            description: 'mega cute cube',
+            imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl4ka3MG1b1bUNrSQ0imTdlzTHhQXVEQ9Iuw&usqp=CAU',
+            difficulty: '3'
           }
     ];
     constructor(name, description, imageUrl, difficulty) {
