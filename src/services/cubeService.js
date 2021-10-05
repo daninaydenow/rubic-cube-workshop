@@ -1,16 +1,21 @@
 const Cube = require('../models/Cube');
 
-const getAll = () => Cube.getAll();
+const getAll = () => Cube.find({}).lean();
 
-const getOne = (id) => Cube.getAll().find(x => x.id == id);
+const getOne = (id) => Cube.findById(id);
 
 const create = (name, description, imageUrl, difficulty) => {
-      const cube = new Cube(name, description, imageUrl, difficulty);
-      Cube.add(cube);
+      const cube = new Cube({
+          name,
+          description,
+          imageUrl,
+          difficulty
+      });
+      return cube.save();
 };
 
 const search = (text, from, to) => {
-    let result = Cube.getAll();
+    let result = getAll();
     if(text) {
         result = result.filter(x => x.name.toLowerCase().includes(text.toLowerCase()));
     }
