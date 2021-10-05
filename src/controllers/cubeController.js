@@ -20,7 +20,7 @@ const createCube = async (req, res) => {
 
 const getCubeDetails = async (req, res) => {
      let cube = await cubeService.getOne(req.params.cubeId);
-     res.render('details', {...cube});
+     res.render('cube/details', {...cube});
 }
 
 
