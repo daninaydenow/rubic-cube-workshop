@@ -17,5 +17,5 @@ const accessorySchema = new mongoose.Schema({
     }
 });
 
-const Accessory = mognoose.model('Accessory', accessorySchema);
+const Accessory = mongoose.model('Accessory', accessorySchema);
 module.exports = Accessory;
