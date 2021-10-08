@@ -15,4 +15,11 @@ exports.auth = function(req, res, next) {
     })
 
 }
+
+exports.isAuth = function(req, res, next) {
+    if(!req.user) {
+        return res.status(401).redirect('/404');
+    }
+    next();
+}
     
