@@ -13,7 +13,6 @@ const about = (req, res) => {
 }
 
 const search = (req, res) => {
-     console.log(req.query);
      let {search, from, to} = req.query;
      let cubes = cubeService.search(search, from, to);
      res.render('index', {

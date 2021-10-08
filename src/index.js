@@ -7,9 +7,9 @@ const initDataBase = require('./config/database');
 
 const app = express();
 app.use(express.urlencoded({extended: true}));
+// rendering engine
 require('./config/handlebars')(app);
 
-// require('./config/handlebars')(app);
 app.use(express.static(path.resolve(__dirname, './public')));
 app.use(routes);
 
