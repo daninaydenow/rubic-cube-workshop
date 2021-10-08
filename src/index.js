@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser');
+
 const config = require('./config/config.json')[process.env.NODE_ENV];
 const routes = require('./routes');
 const initDataBase = require('./config/database');
@@ -7,6 +9,7 @@ const initDataBase = require('./config/database');
 
 const app = express();
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser({}));
 // rendering engine
 require('./config/handlebars')(app);
 
