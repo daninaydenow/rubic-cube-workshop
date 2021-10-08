@@ -5,11 +5,13 @@ const cookieParser = require('cookie-parser');
 const config = require('./config/config.json')[process.env.NODE_ENV];
 const routes = require('./routes');
 const initDataBase = require('./config/database');
+const {auth} = require('./middlewares/atuhMiddleware');
 
 
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser({}));
+app.use(auth);
 // rendering engine
 require('./config/handlebars')(app);
 
