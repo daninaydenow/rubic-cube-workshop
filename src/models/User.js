@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -9,10 +10,23 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+        minlength: [6, 'Your password should be atleast 6 symbols']
 
     },
     
 });
+
+userSchema.pre('save', function(next){
+ console.log(this);
+ bcrypt.hash(this.password, 10)
+ .then(hash => {
+     this.password = hash;
+     next();
+ })
+});
+userSchema.static('findByUsername', function(username) {
+    return this.findOne({username});
+})
 
 const User = mongoose.model('User', userSchema);
 
