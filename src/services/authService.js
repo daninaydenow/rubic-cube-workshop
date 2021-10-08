@@ -17,4 +17,7 @@ exports.login = function (username, password) {
             throw {message: 'Cannot find username or password'};
         }
     })
+    .catch(error => {
+        return null;
+    })
 }
