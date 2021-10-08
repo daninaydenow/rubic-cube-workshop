@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const {SECRET} = require('../constants');
+
 
 exports.jwtSign = function (payload, secret) {
     let promise = new Promise((resolve, reject) => {
