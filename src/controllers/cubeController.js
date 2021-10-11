@@ -9,7 +9,7 @@ const {isAuth} = require('../middlewares/atuhMiddleware');
 
 
 const getCreateCubePage = (req, res) => {
-     res.render('create');
+     res.render('cube/create');
 }
 
 const createCube = async (req, res) => {
