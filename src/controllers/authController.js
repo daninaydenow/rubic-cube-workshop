@@ -23,15 +23,22 @@ router.post('/login', async (req, res) => {
 router.get('/register', (req, res) => {
     res.render('auth/register');
 })
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res, next) => {
     try {
         let {username, password, repeatPassword} = req.body;
         await authService.register(username, password, repeatPassword);
 
     res.redirect('/login');
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).render('auth/register', {error: error.message});
+        // next(error.message);
     }
     
+})
+
+
+router.get('/logout', (req, res) => {
+    res.clearCookie(TOKEN_COOKIE_NAME);
+    res.redirect('/');
 })
 module.exports = router;

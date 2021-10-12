@@ -8,18 +8,19 @@ const getOne = (id) => {
 }
 
 
-const create = (name, description, imageUrl, difficulty) => {
+const create = (name, description, imageUrl, difficulty, userId) => {
       const cube = new Cube({
           name,
           description,
           imageUrl,
-          difficulty
+          difficulty,
+          creator: userId
       });
       return cube.save();
 };
 
-const search = (text, from, to) => {
-    let result = getAll();
+const search = async (text, from, to) => {
+    let result = await getAll();
     if(text) {
         result = result.filter(x => x.name.toLowerCase().includes(text.toLowerCase()));
     }

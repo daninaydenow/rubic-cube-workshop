@@ -6,6 +6,7 @@ const config = require('./config/config.json')[process.env.NODE_ENV];
 const routes = require('./routes');
 const initDataBase = require('./config/database');
 const {auth} = require('./middlewares/atuhMiddleware');
+const {errorHandler} = require('./middlewares/errorHandlerMiddleware');
 
 
 const app = express();
@@ -17,6 +18,7 @@ require('./config/handlebars')(app);
 
 app.use(express.static(path.resolve(__dirname, './public')));
 app.use(routes);
+app.use(errorHandler);
 
 initDataBase(config.DB_CONNECTION_STRING)
 .then(() => {

@@ -8,8 +8,9 @@ async function getAll() {
     return Accessory.find({}).lean();
 }
 
-async function getAllWithout(accessoriIds) {
-    return Accessory.find({_id: {$nin: accessoriIds}}).lean();
+async function getAllWithout(accessoryIds) {
+    return Accessory.find({_id: {$nin: accessoryIds}}).lean();
+    // return Accessory.find().where('_id').nin(accessoryIds).lean();
 }
 
 const accessoryService = {
